@@ -1,22 +1,22 @@
 {% include 'header.html' %}
 <br>
-<a href="{{url_for('create')}}" class="btn btn-success">
-    Ingresar nuevo proveedor
+<a href="{{url_for('create')}}" class="btn" style="background-color: #7D40E7; color:white; margin-left: 38%;">
+    Agregar nuevo proveedor
 </a>
 <br>
 <br>
-<table class="table table-light">
-    <thead class="thead-light">
+<table class="table" style="background-color:#D5C5F1;">
+    <thead class="thead" style="background-color: #7D40E7; color:white; text-align: center;">
         <tr>
             <th>#</th>
-            <th>Foto</th>
+            <th>Logo</th>
             <th>Nombre</th>
             <th>Descripción</th>
             <th>Correo</th>
             <th>Acciones</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody style="text-align: center;">
         {% for proveedor in proveedores %}
         <tr>
             <td>{{proveedor[0]}}</td> <!--Id-->
@@ -26,8 +26,8 @@
             <td>{{proveedor[1]}}</td> <!--Nombre-->
             <td>{{proveedor[2]}}</td> <!--Descripcion-->
             <td>{{proveedor[3]}}</td> <!--Correo-->
-            <td><a class="btn btn-warning" href="/edit/{{proveedor[0]}}">Editar</a> | 
-                <a class="btn btn-danger" onclick="return confirm('¿Desea borrar al empleado?')" href="/destroy/{{proveedor[0]}}">Eliminar</a>
+            <td><a class="btn" style="background-color: #7D40E7; color:white;" href="/edit/{{proveedor[0]}}">Editar</a> | 
+                <a class="btn" style="background-color: #7D40E7; color:white;" onclick="return confirm('¿Desea borrar al empleado?')" href="/destroy/{{proveedor[0]}}">Eliminar</a>
             </td>
         </tr>    
         {% endfor %}

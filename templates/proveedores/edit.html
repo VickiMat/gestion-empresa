@@ -1,15 +1,15 @@
 {% include 'header.html' %}
-Formulario para editar
+
 {% for proveedor in proveedores %}
 
 <form method="post" action="/update" enctype="multipart/form-data">
     
     <div class="card">
-        <div class="card-header">
-            Editar proveedor
+        <div class="card-header" style="text-align:center; font-size:25px">
+            Edición del proveedor
         </div>
-        <div class="card-body">
-            <h5 class="card-title">Datos del proveedor</h5>
+        <div class="card-body" style="padding-left:30px;background-color:#D5C5F1;">
+            <h4 class="card-title">Datos del proveedor:</h4>
             <p class="card-text">
                 <input type="hidden" value="{{ proveedor[0] }}" name="txtID" id="txtID">
                 <div class="form-group">
@@ -35,8 +35,8 @@ Formulario para editar
                 </div>
                 <br>
                 <div class="form-group">
-                    <input type="submit" class="btn btn-success" value="Agregar">
-                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>    
+                    <input type="submit" class="btn" value="Agregar" style="background-color: #7D40E7; color:white; text-align: center;">
+                    <a href="{{url_for('index')}}" class="btn" style="background-color: #7D40E7; color:white; text-align: center;">Regresar</a>    
                 </div>
             </p>
         </div>

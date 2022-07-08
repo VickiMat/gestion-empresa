@@ -15,10 +15,10 @@
 <form method="post" action="/store" enctype="multipart/form-data">
 
     <div class="card">
-        <div class="card-header">
-            Ingresar proveedores
+        <div class="card-header" style="text-align:center; font-size:25px">
+            Ingresar proveedor
         </div>
-        <div class="card-body">
+        <div class="card-body" style="background-color:#D5C5F1;">
             <h5 class="card-title">Datos del proveedor</h5>
             <p class="card-text">
                 <div class="form-group">
@@ -41,9 +41,9 @@
                     <input id="txtFoto" class="form-control" type="file" name="txtFoto">
                 </div>
                 <br>
-                <div class="form-group">
-                    <input type="submit" class="btn btn-success" value="Agregar">
-                    <a href="{{url_for('index')}}" class="btn btn-primary">Regresar</a>    
+                <div class="form-group" style="margin-left: 38%;">
+                    <input type="submit" class="btn" style="background-color: #7D40E7; color:white; text-align: center;" value="Agregar">
+                    <a href="{{url_for('index')}}" class="btn" style="background-color: #7D40E7; color:white; text-align: center;">Regresar</a>    
                 </div>
                 <br>
             </p>
