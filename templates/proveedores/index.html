@@ -1,0 +1,36 @@
+{% include 'header.html' %}
+<br>
+<a href="{{url_for('create')}}" class="btn btn-success">
+    Ingresar nuevo proveedor
+</a>
+<br>
+<br>
+<table class="table table-light">
+    <thead class="thead-light">
+        <tr>
+            <th>#</th>
+            <th>Foto</th>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Correo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for proveedor in proveedores %}
+        <tr>
+            <td>{{proveedor[0]}}</td> <!--Id-->
+            <td>
+                <img class="thumbnail" width="100" src="uploads/{{proveedor[4]}}" alt="">
+            </td> <!--Foto-->
+            <td>{{proveedor[1]}}</td> <!--Nombre-->
+            <td>{{proveedor[2]}}</td> <!--Descripcion-->
+            <td>{{proveedor[3]}}</td> <!--Correo-->
+            <td><a class="btn btn-warning" href="/edit/{{proveedor[0]}}">Editar</a> | 
+                <a class="btn btn-danger" onclick="return confirm('¿Desea borrar al empleado?')" href="/destroy/{{proveedor[0]}}">Eliminar</a>
+            </td>
+        </tr>    
+        {% endfor %}
+    </tbody>
+</table>
+{% include 'footer.html' %}
