@@ -1,6 +1,6 @@
 
 from flask import Flask
-from flask import render_template,request,redirect
+from flask import render_template,request,redirect,url_for,flash
 from flask import send_from_directory
 from flaskext.mysql import MySQL
 from datetime import datetime
@@ -9,6 +9,7 @@ import os
 
 mysql=MySQL()
 app = Flask(__name__)
+app.secret_key="ClaveSecreta"
 #CONEXION DB
 mysql = MySQL()
 app.config['MYSQL_DATABASE_HOST']='localhost'
@@ -43,6 +44,7 @@ def destroy(id):
     cursor = conn.cursor()
     cursor.execute("SELECT foto FROM `gestion_empresa`.`proveedores` WHERE id=%s",
 id)
+    
     fila= cursor.fetchall()
     os.remove(os.path.join(app.config['CARPETA'], fila[0][0]))
 
@@ -103,6 +105,10 @@ def storage():
     _descripcion=request.form['txtDescripcion']
     _correo=request.form['txtCorreo']
     _foto=request.files['txtFoto']
+    if _nombre == '' or _descripcion == '' or _correo == '' or _foto =='':
+        flash('Recuerda llenar los datos de los campos')
+        return redirect(url_for('create'))
+
     now= datetime.now()
     tiempo= now.strftime("%Y%H%M%S")
     if _foto.filename!='':
